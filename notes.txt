@@ -1,0 +1,52 @@
+https://go.dev
+export GOMODCACHE=$HOME/gocode/pkg
+export GOBIN=$GOPATH/bin
+https://code.visualstudio.com/docs/languages/go
+https://www.jetbrains.com/go/
+git clone https://github.com/shijuvar/gokit.git
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$HOME/gocode/jetstream⁩
+export GOMODCACHE=$HOME/gocode/pkg
+export GOBIN=$GOPATH/bin
+"go env" command print all environment variables used by Go 
+go env GOMODCACHE
+print GOMODCACHE environment varibale value
+https://shijuvar.medium.com
+
+
+Shiju Varghese
+14:06
+https://semver.org
+Shiju Varghese
+14:36
+https://docs.gomods.io
+Shiju Varghese
+15:18
+3:35 PM
+Shiju Varghese
+15:51
+Packages:
+
+ - testing	
+ - net/http/httptest
+ 
+ Naming conventions:
+    1. Test suite file: A source file, name ends with _test.go
+	2: Within the test suite file
+	       func TestXyz(t *testing.T) {
+		   }
+Shiju Varghese
+15:55
+github.com/stretchr/testify/assert
+Shiju Varghese
+16:20
+net/http/httptest
+
+    - ResponseRecorder: An implementation of http.ResponseWriter
+	interface. It records all the mutations made on http response
+	by using http.ResponseWriter 
+	- Server: A test web server that lets you write end to end 
+	          http tests
+Shiju Varghese
+16:36
+https://onsi.github.io/ginkgo/

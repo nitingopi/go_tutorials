@@ -1,0 +1,166 @@
+ Day 1 =>
+
+http version 2
+grpc
+running microservices through sidecar
+istio, linkerd -> service mesh platform
+
+
+Data centric approach
+-> Table is the core of desigining application
+
+Domain model
+-> ORM
+
+Domain Driven Design - Eric Evans
+
+Entity [ uniquely identified by id ] vs Value Object [ no id ]
+<>
+Aggregates => cluster of objects that can be treated as a unit
+
+
+Microservices - Avoid foreign key constraints among entities
+
+Command => write operation 
+query => read operation 
+
+Bounded context => central pattern in Domain Driven Design
+
+GORM -> ORM library for GO
+ent -> ORM library for GO
+
+2PC protocol -> multiple database transactions -> if failure happens in one -> rollback
+
+REST API => synchronous -> we wait for response
+Asynchronous -> we don't wait for response
+
+Apache Thrift
+gRPC
+
+communication => API, gRPC, distributed messaging
+message encoding => JSON, protocol buffer
+
+REST API -> not performance oriented
+=> text encoding
+=> not domain specific
+=> good for crud ( create, read, delete, update )
+=> not strongly typed
+=> not providing streaming
+=> TCP connection for each request
+
+RPC ( based on proprietry standard )
+Java - CORBA
+.NET - COM/DCOM
+|
+v
+Failed
+
+XML webservices came
+|
+v
+Failed
+
+RPC coming back
+
+Modern RPC based on modern standard
+Platform independent
+
+gRPC
+1 -> Define IDL(Iterface definition language) using protocol buffer
+2 -> protocol version HTTP 2
+3 -> 
+
+Most of the browser supports HTTP version 1.1
+
+HTTP version 1 vs HTTP version 2
+
+
+Protocol buffer
+-> IDL
+-> structure of request and response
+-> binary format of network communication
+-> supports multiple language
+-> provide type safety
+-> prevent schema violations
+-> fast serialization
+-> 
+
+Type of RPC methods
+-> Simple RPC
+-> server side streaming RPC
+-> client side streaming RPC
+-> bi-directional streaming RPC
+
+Generate source code ( java, go, python, ruby etc. ) -> create server -> create client
+
+git clone https://github.com/shijuvar/go-distsys.git 
+
+Protocol buffering
+id -> numeric
+encoding -> payload size will be smaller -> improve performance
+when we transfer data over the network, payload size can be largely reduced
+lightweight, highly performant
+
+can't use Postman <- it is REST client
+
+!=!=!=
+== <> <== ==> ==
+Day2 ->
+
+gRPC Interceptor
+error handling
+TLS configuration
+Event driven architectures
+Application => composed of independent components that react to events published by other components
+Events are facts -> something that happened in past
+Facts are immutable -> can't be changed / retracted 
+Event sourcing => Storing events
+-> Persists events in event store
+-> any new modification is a new event
+-> Preserve history of aggregates
+-> 
+
+Event sourcing works with CQRS
+CQRS => Command Query Responsibility Segregation
+
+== 
+Day3
+==
+
+NATS
+->cloud native messaging system
+->pub/sub messaging model
+->Apache is difficult to setup infrastructure, we need to use zookeeper
+
+go get github.com/nats-io/nats-server/v2 (NATS server)
+go get github.com/nats-io/nats.go/@latest (NATS Client SDK for Go)
+
+
+Jetstream
+-> Next generation streaming service from NATS
+-> persists streams into event store and then publish
+-> push based (server pushes the messages to subscribers) and pull based subscriber system (subscribers need to pull from the server)
+-> Create stream using CLI Tool
+->Durable subscriber
+->-> 
+
+Context ?
+Gokit
+-> 
+
+Hexagonal Architecture
+Finagle- framework -> similar to GoKit
+go micro - framework
+	 
+Dave cheney - prefer libarary over framework
+Logging -> logrus in go
+
+CockroachDB -> github.com/cockroachdb/cockroach-go/crdb
+
+Flow of request response
+request => Transport layer -> Endpoint layer -> Service layer
+response => Service layer -> Endpoint layer -> Transport layer	 
+
+Middleware => we can add at any time
+zipkin -> for tracing
+
